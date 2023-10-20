@@ -1,0 +1,21 @@
+div{
+    background-color: #0f0026;;
+}
+.button{
+    width: 10%;
+    height: 5%;
+    margin-top: 7%;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 2%;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+.button:hover{
+    background-color: #0f0026;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+}
