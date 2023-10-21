@@ -1,5 +1,5 @@
 div{
-    background-color: #0f0026;
+    background-color: #12154c;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -15,7 +15,7 @@ h1{
     color: #ffffff;
 }
 form{
-    color: #0f0026;
+    color: #12154c;
     background-color: rgb(255, 255, 255);
     margin-top: 1%;
     margin-bottom: 1%;
@@ -39,7 +39,7 @@ input{
     width: 50%;
     height: 2vh;
     border-radius: 20px;
-    border: 1px solid #0f0026;
+    border: 1px solid #12154c;
     padding: 2%;
     font-size: 1rem;
     font-weight: 300;
@@ -52,7 +52,7 @@ textarea{
     width: 50%;
     height: 15vh;
     border-radius: 20px;
-    border: 1px solid #0f0026;
+    border: 1px solid #12154c;
     
     padding: 2%;
     font-size: 0.9rem;
@@ -63,7 +63,7 @@ textarea{
 button{
     margin-top: 7%;
     
-    background-color: #0f0026;
+    background-color: #ff7704;
     color: white;
     border: 1px solid white;
     border-radius: 20px;
@@ -73,7 +73,7 @@ button{
 }
 button:hover{
     background-color: #ffffff;
-    color: #0f0026;
-    border: 1px solid #0f0026;
+    color: #12154c;
+    border: 1px solid #12154c;
     cursor: pointer;
 }
