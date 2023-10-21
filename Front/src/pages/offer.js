@@ -4,12 +4,26 @@ import './offer.css';
 export function Offer() {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+    const [data, setData] = useState({});
 
     const handleSubmit = (e) => {
         e.preventDefault();
-       
+        fetch('http://localhost:8080/annonce', {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            body: JSON.stringify({
+                title: title,
+                description: description
+              })
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error(error));
         console.log(`Title: ${title}, Description: ${description}`);
     };
+
 
     return (
         <div>
@@ -30,5 +44,3 @@ export function Offer() {
         </div>
     );
 }
-
-;
