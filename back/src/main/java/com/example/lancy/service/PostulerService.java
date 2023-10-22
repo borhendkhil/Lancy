@@ -1,7 +1,7 @@
 package com.example.lancy.service;
 
 import com.example.lancy.model.Postuler;
-import com.example.lancy.model.Postuler;
+
 import com.example.lancy.repository.PostulerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

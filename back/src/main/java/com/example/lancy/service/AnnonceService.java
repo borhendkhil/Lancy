@@ -4,6 +4,7 @@ import com.example.lancy.model.Annonce;
 import com.example.lancy.repository.AnnonceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,10 +20,6 @@ public class AnnonceService {
 
 
 
-
-    public List<Annonce> getAllAnnonces() {
-        return annonceRepository.findAll();
-    }
     public Optional<Annonce> getAnnonceById(Long id) {
         return annonceRepository.findById(id);
     }
@@ -47,5 +44,11 @@ public class AnnonceService {
         }
         return false;
     }
+
+
+   public List<Annonce> getAllAnnonces() {
+        return annonceRepository.findAll();
+    }
+ 
 }
 

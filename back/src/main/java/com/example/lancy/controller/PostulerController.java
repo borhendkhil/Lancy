@@ -1,10 +1,7 @@
 package com.example.lancy.controller;
 
 import com.example.lancy.model.Postuler;
-import com.example.lancy.model.Postuler;
-
 import com.example.lancy.service.PostulerService;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
