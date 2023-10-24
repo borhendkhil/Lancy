@@ -27,6 +27,7 @@ export function Offer() {
 
     return (
         <div>
+         
             <h1>Create an Offer</h1>
             <form onSubmit={handleSubmit}>
                 
