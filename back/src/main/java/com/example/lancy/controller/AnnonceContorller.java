@@ -21,8 +21,7 @@ public class AnnonceContorller {
 
     @GetMapping
     public List<Annonce> getAllAnnonces() {
-        return annonceService.getAllAnnonces();
-    }
+        return annonceService.getAllAnnonces(); }
     @GetMapping("/{id}")
     public ResponseEntity<Annonce> getAnnonceById(@PathVariable Long id) {
         return annonceService.getAnnonceById(id)
