@@ -6,8 +6,6 @@ import { Appbar } from './component/appBar';
 */
 
 import './App.css';
-import Postule from './component/Postule';
-import Appbar from './component/Appbar';
 
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 

@@ -55,7 +55,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
- function Appbar() {
+export default function Appbar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -222,4 +222,3 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     </Box>
   );
 }
-export default Appbar;
