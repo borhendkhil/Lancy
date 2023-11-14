@@ -9,6 +9,7 @@ import java.util.List;
 
 @RequestMapping("/postuler")
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class PostulerController {
     
     private final PostulerService postulerService;
@@ -21,6 +22,7 @@ public class PostulerController {
     public List<Postuler> getAllPostuler() {
         return postulerService.findAll();
     }
+
     @GetMapping("/{id}")
     public ResponseEntity<Postuler> getPostulerById(@PathVariable Long id) {
         return postulerService.getPostulerById(id)
