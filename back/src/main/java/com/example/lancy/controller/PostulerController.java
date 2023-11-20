@@ -30,7 +30,7 @@ public class PostulerController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping(/*consumes = "application/json", produces = "application/json"*/)
+    @PostMapping()
     public Postuler createPostuler(@RequestBody Postuler annonce) {
         return postulerService.createPostuler(annonce);
     }

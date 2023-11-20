@@ -27,7 +27,7 @@ public class PostulerService {
 
     public Postuler createPostuler(Postuler postuler) {
         Optional<Postuler> postulerOptional = postulerRepository
-                . findPostulerById_freelancer(postuler.getId_freelancer () ) ;
+                . findPostulerById_freelancer(postuler.getId_freelancer (), postuler.getId_annonce()) ;
         if (postulerOptional.isPresent()) {
             throw new IllegalStateException("you already applied for this job");
 
