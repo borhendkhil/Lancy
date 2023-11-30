@@ -1,5 +1,6 @@
 package com.example.lancy.service;
 
+import com.example.lancy.model.User;
 import com.example.lancy.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
