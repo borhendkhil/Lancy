@@ -1,7 +1,6 @@
 package com.example.lancy.service;
 
 import com.example.lancy.model.Chat;
-import com.example.lancy.model.User;
 import com.example.lancy.repository.ChatRepository;
 import com.example.lancy.repository.UserRepository;
 import lombok.RequiredArgsConstructor;

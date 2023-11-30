@@ -1,6 +1,5 @@
 package com.example.lancy.repository;
 
-import com.example.lancy.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
