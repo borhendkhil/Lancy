@@ -69,7 +69,9 @@ public class Postuler {
         return date;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    @PrePersist
+    @PreUpdate
+    public void setDate() {
+        this.date = LocalDate.now();
     }
 }

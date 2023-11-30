@@ -1,8 +1,8 @@
 package com.example.lancy.service;
 
 import com.example.lancy.model.Postuler;
-
 import com.example.lancy.repository.PostulerRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +27,7 @@ public class PostulerService {
 
     public Postuler createPostuler(Postuler postuler) {
         Optional<Postuler> postulerOptional = postulerRepository
-                . findPostulerById_freelancer(postuler.getId_freelancer (), postuler.getId_annonce()) ;
+                .findPostulerById_freelancer(postuler.getId_freelancer (), postuler.getId_annonce()) ;
         if (postulerOptional.isPresent()) {
             throw new IllegalStateException("you already applied for this job");
 
