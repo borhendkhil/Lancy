@@ -41,8 +41,7 @@ public class User implements UserDetails {
     private String bio;
     private String skills;
     private String languages;
-    private String experiences;
-    private String education;
+    
 
     @Override
     public String getPassword(){
