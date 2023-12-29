@@ -3,8 +3,10 @@ package com.example.lancy.repository;
 import com.example.lancy.model.Postuler;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
+@Repository
 
 public interface PostulerRepository  extends JpaRepository<Postuler, Long> {
     Postuler findByid(long id);
