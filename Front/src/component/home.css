@@ -1,21 +1,99 @@
-div{
-    background-color: #0f0026;;
+.home{
+    background-color: rgb(255, 255, 255);
+    height: 4384px;
+    font-family: gadugi, sans-serif; 
+   
+
+    
+}
+.mrb3-m3wj{
+    
+    background-color: #172671;
+    height: 710px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 0 0 25vw 0;
+    color: white;
+    
+    
+}
+.title1{
+    color: white;
+    font-size: 30px;
+    font-weight: auto;
+    margin-top: 160px;
+    
+   
 }
 .button{
-    width: 10%;
-    height: 5%;
-    margin-top: 7%;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    border: 1px solid white;
-    border-radius: 20px;
-    padding: 2%;
-    font-size: 1.2rem;
-    font-weight: 700;
-}
-.button:hover{
-    background-color: #0f0026;
-    color: white;
-    border: 1px solid white;
+    background-color: #ff7704;
+    padding: 10px 60px;
+    color:white;
+    font-weight: bold;
+    border-radius: 18vw;
     cursor: pointer;
+}
+
+.button:hover{
+    background-color: #cf5e01;
+}
+.title , .text{
+    width: 65%;
+}
+
+.lech{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+
+}
+.title2{
+    color: #172671;
+    font-size: 25px;
+    font-weight: 800;
+    margin-top: 50px;
+
+}
+.text2{
+    width: 60%;
+}
+.pubProj{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    background-color: rgb(245, 245, 245);
+    width: 100%;
+}
+.pubProj img{
+    height: 550px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-left: -120px;
+}
+.khat-azra9{
+    width: 10px;
+    height: 600px;
+    background-color: #172671;
+    border-radius: 50px;
+    margin-left: 50px;
+
+}
+.pub{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+p{
+    margin-bottom: 30px;
 }
