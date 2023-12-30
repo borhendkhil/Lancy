@@ -2,7 +2,36 @@ import React from 'react';
 import './home.css';
 import desktop from '../res/desk1.png'
 import Navbar from './navbar';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
+
+const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+      slidesToSlide: 1 // optional, default to 1.
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+      slidesToSlide: 1 // optional, default to 1.
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+      slidesToSlide: 1 // optional, default to 1.
+    }
+  };
+
+
+  const data = [
+    { title: 'Item 1', image: desktop },
+    { title: 'Item 2', image: desktop },
+    { title: 'Item 3', image: desktop },
+    // add more items as needed
+  ];
+  
 
 export function Home() {
 
@@ -32,6 +61,20 @@ export function Home() {
             </div>
             <div className='categories'>
                 <p className='title2'>De quoi avez-vous besoin ?</p>
+
+                <Carousel responsive={responsive} 
+                showDots={true}
+                infinite={true}
+                autoPlay={true}
+                autoPlaySpeed={5000}
+                arrows={true}>
+      {data.map((item, index) => (
+        <div key={index}>
+          <img src={item.image} alt={item.title} />
+          <p>{item.title}</p>
+        </div>
+      ))}
+    </Carousel>
                 
             </div>
            

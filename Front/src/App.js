@@ -1,6 +1,7 @@
 import React from 'react';
 import { Home } from './component/home';
 
+
 /*import { Postule } from './component/Postule';
 import { Appbar } from './component/appBar';
 */
@@ -19,7 +20,10 @@ function App() {
     
      */
   return (
+   
     <div className="App">
+    
+
   
    <Router>
     <Routes>
@@ -31,7 +35,10 @@ function App() {
 
     </Routes>
    </Router>
+   
+ 
     </div>
+    
   );
 }
 

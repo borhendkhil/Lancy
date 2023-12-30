@@ -97,3 +97,10 @@
 p{
     margin-bottom: 30px;
 }
+carousel img{
+    height: 100px;
+    width: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-left: -120px;
+}

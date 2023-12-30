@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
+
 
 import "./auth.css";
 const SignInUpForm = () => {
@@ -7,6 +8,7 @@ const SignInUpForm = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [isSignUpMode, setIsSignUpMode] = useState(false);
+ 
 
     const handleSignUpClick = () => {
         setIsSignUpMode(true);
@@ -38,11 +40,52 @@ const SignInUpForm = () => {
         })
         .then(response => response.json())
         .then(data => {
-            // Handle the response data
+            
             console.log(data);
+            
+            localStorage.setItem('token', data.token);
+          
+       
+            window.location.href = "/";
+            
         })
         .catch(error => {
-            // Handle any errors
+            
+            console.error(error);
+        });
+    };
+
+    const handleSignIn = () => {
+        console.log(email);
+        console.log(password);
+
+        const userData = {
+            mail:email,
+            password:password
+        };
+
+        fetch('http://localhost:8080/auth/authenticate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            
+            console.log(data);
+            
+            localStorage.setItem('token', data.token);
+           
+            
+    
+        
+            window.location.href = "/";
+            
+        })
+        .catch(error => {
+            
             console.error(error);
         });
     };
@@ -54,14 +97,14 @@ const SignInUpForm = () => {
                     <form action="#" className="sign-in-form">
                         <h2 className="title">Se connecter</h2>
                         <div className="input-field">
-                            <i className="fas fa-user"></i>
-                            <input type="email" placeholder="Email" />
+                            <i className="fas fa-envelope"></i>
+                            <input type="email" placeholder="Email" onChange={e => setEmail(e.target.value)}/>
                         </div>
                         <div className="input-field">
                             <i className="fas fa-lock"></i>
-                            <input type="password" placeholder="Mot de passe" />
+                            <input type="password" placeholder="Mot de passe"onChange={e => setPassword(e.target.value)} />
                         </div>
-                        <input type="submit" value="Connexion" className="btn solid" />
+                        <div className="btn" onClick={handleSignIn}>Se connecter</div>
                     </form>
                     <form className="sign-up-form">
                         <h2 className="title">S'inscrire</h2>
