@@ -97,10 +97,33 @@
 p{
     margin-bottom: 30px;
 }
-carousel img{
-    height: 100px;
-    width: 100px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    margin-left: -120px;
+.carcard img{
+    width: 23vw;
+    margin-top: 15px;
+    margin-bottom: 24%;
+    
+    
+}
+.categories{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.carcard{
+    margin-top: 25px;
+    width: 24vw;
+    height: 24vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+ margin-bottom: 30px;
+    margin-left:0.5vw;
+    color: #172671;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 0 0 5vw 0;
+    outline: 1px solid rgb(0, 0, 0);
+    box-shadow: 2px 1px 2px 4px rgb(197, 197, 197);
 }

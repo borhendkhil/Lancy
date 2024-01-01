@@ -1,4 +1,4 @@
-import React, { useState,useContext } from 'react';
+import React, { useState} from 'react';
 
 
 import "./auth.css";
@@ -44,9 +44,11 @@ const SignInUpForm = () => {
             console.log(data);
             
             localStorage.setItem('token', data.token);
+
+            localStorage.setItem('IsAuthenticated', 'true');
           
        
-            window.location.href = "/";
+          window.location.href = "/";
             
         })
         .catch(error => {
@@ -74,14 +76,15 @@ const SignInUpForm = () => {
         .then(response => response.json())
         .then(data => {
             
-            console.log(data);
+            console.log(data.token);
             
             localStorage.setItem('token', data.token);
            
+            //localStorage.setItem('IsAuthenticated', 'true');
             
     
         
-            window.location.href = "/";
+           // window.location.href = "/";
             
         })
         .catch(error => {

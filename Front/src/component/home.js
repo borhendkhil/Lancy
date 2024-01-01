@@ -1,6 +1,7 @@
 import React from 'react';
 import './home.css';
 import desktop from '../res/desk1.png'
+import graphicdes from '../res/graphicdes.jpg'
 import Navbar from './navbar';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -9,7 +10,7 @@ import 'react-multi-carousel/lib/styles.css';
 const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3,
+      items: 4,
       slidesToSlide: 1 // optional, default to 1.
     },
     tablet: {
@@ -26,10 +27,12 @@ const responsive = {
 
 
   const data = [
-    { title: 'Item 1', image: desktop },
-    { title: 'Item 2', image: desktop },
-    { title: 'Item 3', image: desktop },
-    // add more items as needed
+    { title: 'Graphic design', image: graphicdes },
+    { title: 'Branding', image: graphicdes },
+    { title: 'Web dev', image: graphicdes },
+    { title: 'Mobile dev', image: graphicdes },
+    { title: 'Video editing', image: graphicdes },
+  
   ];
   
 
@@ -69,13 +72,25 @@ export function Home() {
                 autoPlaySpeed={5000}
                 arrows={true}>
       {data.map((item, index) => (
-        <div key={index}>
+        <div className='carcard' key={index}>
           <img src={item.image} alt={item.title} />
           <p>{item.title}</p>
         </div>
       ))}
     </Carousel>
                 
+            </div>
+            <div className='pubProj'>
+            <div className='pub'>
+                    <p className='title2'>Dénichez un talentueux freelance Tunisien sur notre plateforme</p>
+                    <p className='text2'> barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem </p>
+                    <p className='text2'> chwayya klem chwayya klem chwayya klem chwayya </p>
+                    <p className='button'> Publier un projet</p>
+                </div>
+                
+                <img className='img' src={desktop} />
+                <div className='khat-azra9' style={{ marginRight: '150px' ,marginLeft:"-100px"}}></div>
+               
             </div>
            
         </div>
