@@ -8,7 +8,7 @@ import Freehome from './component/freehome';
 
 function App() {
   
-  let Role = "freelancer";
+  let Role = "client";
 
   if (Role === "freelancer") {
     return (

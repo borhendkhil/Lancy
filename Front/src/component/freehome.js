@@ -26,11 +26,23 @@ function FreeHome() {
           )}
           
        
-        <div className="posts-list">
-            <div>Post 1</div>
-            <div>Post 2</div>
-            <div>Post 3</div>
-          </div>
+          <div className="job-offerings">
+  <div className="job">
+    <h2 className="job-title">Job Title 1</h2>
+    <p className="job-category">Category 1</p>
+    <p className="job-description">This is a description for Job 1.</p>
+    <p className="job-client">Client 1</p>
+    <div className='button'>Postuler</div>
+  </div>
+  <div className="job">
+    <h2 className="job-title">Job Title 2</h2>
+    <p className="job-category">Category 2</p>
+    <p className="job-description">This is a description for Job 2.</p>
+    <p className="job-client">Client 2</p>
+    <div className='button'>Postuler</div>
+  </div>
+ 
+</div>
       </div>
     </div>
   );

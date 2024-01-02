@@ -58,7 +58,6 @@ nav div ul li {
     position: relative;
     display: inline-block;
 }
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -69,28 +68,28 @@ nav div ul li {
     z-index: 1;
     flex-direction: column; 
     color: #fff;
-    margin-top: 25px;
-}
-
-.dropdown:hover .dropdown-content {
+  }
+  
+  .dropdown:hover .dropdown-content {
     display: flex;
     flex-direction: column; 
-}
-
-.dropdown-content ul {
+  }
+  
+  .dropdown-content ul {
     list-style: none;
     padding: 0;
     margin: 0;
-}
-
-.dropdown-content li {
+  }
+  
+  .dropdown-content li {
     display: block;
     margin-bottom: 10px;
     color: #fff;
     margin-top: 10px;
-}
-a{
+  }
+  
+  a {
     color: #fff;
     text-decoration: none;
     margin-top: 10px;
-}
+  }

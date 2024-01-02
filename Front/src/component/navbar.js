@@ -1,4 +1,4 @@
-import React, { useContext,useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom'; // Import the Link component from react-router-dom
 import logo from '../res/logohor.png';
 import './navbar.css';
@@ -17,24 +17,42 @@ const Navbar = ({ Role }) => {
                     {Role === 'Freelance' ? (
                         <>
                             <li className="dropdown">
-  Projets
-  <div className="dropdown-content">
-    <a href="#">Project 1</a>
-    <a href="#">Project 2</a>
-    <a href="#">Project 3</a>
-  </div>
-</li>
-<li className="dropdown">
-  Profile
-  <div className="dropdown-content">
-    <a href="#">View Profile</a>
-    <a href="#">Edit Profile</a>
-  </div>
-</li>
+                                Projets
+                                <div className="dropdown-content">
+                                    <a href="#">Project 1</a>
+                                    <a href="#">Project 2</a>
+                                    <a href="#">Project 3</a>
+                                </div>
+                            </li>
+                            <li className="dropdown">
+                                Profile
+                                <div className="dropdown-content">
+                                    <a href="#">View Profile</a>
+                                    <a href="#">Edit Profile</a>
+                                </div>
+                            </li>
+                        </>
+                    ) : Role === 'CLient' ? (
+                        <>
+                            <li className="dropdown">
+                                Projets
+                                <div className="dropdown-content">
+                                    <a href="#">Project 1</a>
+                                    <a href="#">Project 2</a>
+                                    <a href="#">Project 3</a>
+                                </div>
+                            </li>
+                            <li className="dropdown">
+                                Profile
+                                <div className="dropdown-content">
+                                    <a href="#">View Profile</a>
+                                    <a href="#">Edit Profile</a>
+                                </div>
+                            </li>
                         </>
                     ) : (
                         <>
-                             <li><Link className='auth' to="/auth">SE CONNECTER</Link></li>
+                            <li><Link className='auth' to="/auth">SE CONNECTER</Link></li>
                             <li className='contact'>CONTACTER-NOUS</li>
                         </>
                     )}
