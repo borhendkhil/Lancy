@@ -17,9 +17,11 @@ function FreeHome() {
           </div>
           {showCategories && (
             <div className="categories-list">
-              <label><input type="checkbox" /> Category 1</label>
-              <label><input type="checkbox" /> Category 2</label>
-              <label><input type="checkbox" /> Category 3</label>
+            <label><input type="checkbox" /> Marketing</label>
+              <label><input type="checkbox" /> Design Graphique</label>
+              <label><input type="checkbox" /> Montage Video</label>
+              <label><input type="checkbox" /> Developpment Web</label>
+              <label><input type="checkbox" /> Developpment Mobile</label>
             </div>
           )}
           
