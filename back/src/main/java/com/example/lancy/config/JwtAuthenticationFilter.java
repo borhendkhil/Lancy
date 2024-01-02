@@ -18,6 +18,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 @Component
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
@@ -60,5 +63,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         }
         filterChain.doFilter(request,response);
 
+    }
+    private Map<String, Object> getAdditionalDetails(HttpServletRequest request) {
+
+        Map<String, Object> additionalDetails = new HashMap<>();
+        additionalDetails.put("ipAddress", request.getRemoteAddr());
+
+        return additionalDetails;
     }
 }

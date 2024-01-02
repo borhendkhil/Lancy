@@ -5,7 +5,6 @@ import com.example.lancy.model.AuthenticationResponse;
 import com.example.lancy.model.RegisterRequest;
 import com.example.lancy.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,9 +31,9 @@ public class AuthenticationController {
         return ResponseEntity.ok(authenticationService.registerFreelancer(request));
     }
     @PostMapping("/authenticate")
-    public ResponseEntity <AuthenticationResponse> authenticate(
+    public ResponseEntity<AuthenticationResponse> authenticate(
         @RequestBody AuthenticationRequest request) {
-        return ResponseEntity.ok(authenticationService.authenticate(request));
+        return ResponseEntity.ok(authenticationService.authenticateAndGetCurrentUser(request));
 
     }
     @GetMapping("/currentUserId")
