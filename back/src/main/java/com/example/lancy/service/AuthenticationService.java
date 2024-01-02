@@ -29,7 +29,40 @@ public class AuthenticationService {
                 .firstName(request.getFirstName())
                 .mail(request.getMail())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .role(Role.USER)
+                .role(Role.CLIENT)
+
+                .build();
+        userRepository.save(user);
+        var jwtToken = jwtService.generateToken(user);
+
+        return AuthenticationResponse.builder()
+                .token(jwtToken)
+                .build();
+    }
+    public AuthenticationResponse registerFreelancer(RegisterRequest request) {
+        var user = User.builder()
+                .name(request.getName())
+                .firstName(request.getFirstName())
+                .mail(request.getMail())
+                .password(passwordEncoder.encode(request.getPassword()))
+                .role(Role.FREELANCER)
+
+                .build();
+        userRepository.save(user);
+        var jwtToken = jwtService.generateToken(user);
+
+        return AuthenticationResponse.builder()
+                .token(jwtToken)
+                .build();
+    }
+    public AuthenticationResponse registerAdmin(RegisterRequest request) {
+        var user = User.builder()
+                .name(request.getName())
+                .firstName(request.getFirstName())
+                .mail(request.getMail())
+                .password(passwordEncoder.encode(request.getPassword()))
+                .role(Role.ADMIN)
+
                 .build();
         userRepository.save(user);
         var jwtToken = jwtService.generateToken(user);

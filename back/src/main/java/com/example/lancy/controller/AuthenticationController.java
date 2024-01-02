@@ -25,6 +25,12 @@ public class AuthenticationController {
     ) {
         return ResponseEntity.ok(authenticationService.register(request));
     }
+    @PostMapping("/registerFreelancer")
+    public ResponseEntity <AuthenticationResponse> registerFreelancer(
+        @RequestBody RegisterRequest request
+    ) {
+        return ResponseEntity.ok(authenticationService.registerFreelancer(request));
+    }
     @PostMapping("/authenticate")
     public ResponseEntity <AuthenticationResponse> authenticate(
         @RequestBody AuthenticationRequest request) {
@@ -33,12 +39,7 @@ public class AuthenticationController {
     }
     @GetMapping("/currentUserId")
     public ResponseEntity<Long> getCurrentUserId() {
-        Long currentUserId =authenticationService.getCurrentUserId();
-        if (currentUserId != null) {
-            return ResponseEntity.ok(currentUserId);
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
-        }
+        return ResponseEntity.ok(authenticationService.getCurrentUserId());
     }
 
 }
