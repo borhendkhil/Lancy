@@ -15,7 +15,7 @@ function App() {
       <div className="App">
         <Router>
           <Routes>
-            <Route path="/" Component={Home} />
+            <Route path="/" Component={Freehome} />
             <Route path="/auth" Component={SignInUpForm} />
           </Routes>
         </Router>

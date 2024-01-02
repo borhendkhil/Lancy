@@ -88,10 +88,14 @@ public class AuthenticationService {
                 .build();
     }
 
-    public Long getCurrentUserId() {
-        var authentication = SecurityContextHolder.getContext().getAuthentication();
-        var user = (UserDetails) authentication.getPrincipal();
-        return userRepository.findByMail(user.getUsername()).orElseThrow().getId();
-
-    }
+public Long getCurrentUserId() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.getPrincipal() instanceof UserDetails) {
+                UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+                return userRepository.findByMail(userDetails.getUsername())
+                                .map(User::getId)
+                                .orElse(null);
+        }
+        return null;
+}
 }
