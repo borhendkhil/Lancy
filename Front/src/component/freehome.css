@@ -1,0 +1,36 @@
+.sidebar {
+    width: 200px;
+    background-color: #172671;
+    color: white;
+    padding: 10px;
+    margin-left: 0px;
+  }
+  
+  .categories-button {
+    background-color: #172671;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: large;
+  }
+  
+  .categories-list, .posts-list {
+    margin-top: 10px;
+
+  }
+.page-content{
+   
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+
+    
+}
+.posts-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+}

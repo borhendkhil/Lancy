@@ -16,13 +16,26 @@ const Navbar = ({ Role }) => {
                 <ul>
                     {Role === 'Freelance' ? (
                         <>
-                            <li><Link className='auth' to="/auth">SE CONNECTER</Link></li>
-                            <li>CONTACTER-NOUS</li>
+                            <li className="dropdown">
+  Projets
+  <div className="dropdown-content">
+    <a href="#">Project 1</a>
+    <a href="#">Project 2</a>
+    <a href="#">Project 3</a>
+  </div>
+</li>
+<li className="dropdown">
+  Profile
+  <div className="dropdown-content">
+    <a href="#">View Profile</a>
+    <a href="#">Edit Profile</a>
+  </div>
+</li>
                         </>
                     ) : (
                         <>
-                            <li>ITEM 1</li>
-                            <li>ITEM 2</li>
+                             <li><Link className='auth' to="/auth">SE CONNECTER</Link></li>
+                            <li className='contact'>CONTACTER-NOUS</li>
                         </>
                     )}
                 </ul>

@@ -6,7 +6,7 @@ nav {
     background-color: #172671;
     font-family: "Segoe UI", Arial, sans-serif; 
     position: fixed;
-    width: 98vw;
+    width: 100vw;
     top: 0px;
     z-index: 1;
     border-radius: 0 0 0.5vw 0.5vw;
@@ -39,17 +39,58 @@ nav div ul li {
     margin-left: 20px;
 }
 
-nav div ul li:last-child {
+.contact{
     background-color: #ff7704;
     padding: 10px 15px;
     border-radius: 18vw;
     cursor: pointer;
 }
 
-nav div ul li:last-child:hover {
+.contact:hover {
     background-color: #cf5e01;
 }
 .auth {
     color: #fff;
     text-decoration: none;
+}
+.dropdown {
+    margin-right: 50px;
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(23, 38, 113); /* Same background color as nav bar with less opacity */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    flex-direction: column; 
+    color: #fff;
+    margin-top: 25px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: flex;
+    flex-direction: column; 
+}
+
+.dropdown-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-content li {
+    display: block;
+    margin-bottom: 10px;
+    color: #fff;
+    margin-top: 10px;
+}
+a{
+    color: #fff;
+    text-decoration: none;
+    margin-top: 10px;
 }
