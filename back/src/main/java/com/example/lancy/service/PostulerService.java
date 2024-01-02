@@ -24,6 +24,12 @@ public class PostulerService {
     public Optional<Postuler> getPostulerById(Long id) {
         return postulerRepository.findById(id);
     }
+    public List<Postuler> getPostulerById_annonce(Long id) {
+        return postulerRepository.findPostulerById_annonce(id);
+    }
+    public List<Postuler> getPostulerById_freelancer(Long id) {
+        return postulerRepository.findPostulerById_freelancer(id);
+    }
 
     public Postuler createPostuler(Postuler postuler) {
         Optional<Postuler> postulerOptional = postulerRepository
@@ -50,4 +56,14 @@ public class PostulerService {
         }
         return false;
     }
+    public int countFreelancer(Long id) {
+        return postulerRepository.countPostuler(id);
+
+    }
+
+
+
+    
+
+    
 }

@@ -37,6 +37,7 @@ public class AuthenticationService {
         userRepository.save(user);
         var jwtToken = jwtService.generateToken(user);
 
+
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .build();
@@ -74,27 +75,28 @@ public class AuthenticationService {
                 .build();
     }
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
+
+
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getMail(),
                         request.getPassword()
                 )
         );
+
+
         var user = userRepository.findByMail(request.getMail()).orElseThrow();
 
         var jwtToken = jwtService.generateToken(user);
-
-
-
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .build();
     }
 
-    public Long getCurrentUserId() {
+    public Long     getCurrentUserId() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        if (authentication != null && authentication.getPrincipal() instanceof UserDetails) {
+        if (authentication != null && authentication.getPrincipal() instanceof UserDetails ) {
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
             String username = userDetails.getUsername();
             System.out.println("Username: " + username);
@@ -114,26 +116,34 @@ public class AuthenticationService {
         return null;
     }
     public AuthenticationResponse authenticateAndGetCurrentUser(AuthenticationRequest request) {
-        // Create an authentication token with the provided username and password
+
+
         Authentication authenticationToken = new UsernamePasswordAuthenticationToken(
                 request.getMail(),
                 request.getPassword()
         );
 
-        // Authenticate the user
+
+
         Authentication authenticatedAuthentication = authenticationManager.authenticate(authenticationToken);
 
-        // Set the authenticated user in the SecurityContextHolder
+
         SecurityContextHolder.getContext().setAuthentication(authenticatedAuthentication);
 
-        // Retrieve the authenticated user's ID
         String authenticatedUsername = authenticatedAuthentication.getName();
         Optional<User> userOptional = userRepository.findByMail(authenticatedUsername);
 
-        // Generate JWT token
         String jwtToken = jwtService.generateToken(userOptional.orElseThrow());
 
-        // Return a DTO with user ID and token
+
         return new AuthenticationResponse(userOptional.map(User::getId).orElse(null), jwtToken);
+
+
     }
+
+    public void logout() {
+        SecurityContextHolder.clearContext();
+    }
+
+
 }

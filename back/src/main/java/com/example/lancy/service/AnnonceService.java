@@ -24,9 +24,9 @@ public class AnnonceService {
         return annonceRepository.findById(id);
     }
 
-    public Annonce createAnnonce(Annonce annonce) {
-        return annonceRepository.save(annonce);
 
+    public Annonce createAnnonce(Annonce newAnnonce) {
+        return annonceRepository.save(newAnnonce);
     }
 
     public Optional<Annonce> updateAnnonce(Long id, Annonce updatedAnnonce) {
@@ -47,6 +47,7 @@ public class AnnonceService {
 
 
    public List<Annonce> getAllAnnonces() {
+
         return annonceRepository.findAll();
     }
  

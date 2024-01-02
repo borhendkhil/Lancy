@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,7 +27,12 @@ public class Annonce {
 
     private String description;
 
+
     private String category;
+
+    private LocalDate date;
+    private boolean isActive;
+    private String etat;
 
 
 

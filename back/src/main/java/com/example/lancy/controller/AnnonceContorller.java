@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("/annonce")
+@RequestMapping("auth/annonce")
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class AnnonceContorller {
@@ -29,10 +29,13 @@ public class AnnonceContorller {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping(/*consumes = "application/json", produces = "application/json"*/)
-    public Annonce createAnnonce(@RequestBody Annonce annonce) {
-        return annonceService.createAnnonce(annonce);
+    @PostMapping
+    public ResponseEntity<Annonce> createAnnonce(@RequestBody Annonce newAnnonce) {
+        return ResponseEntity.ok(annonceService.createAnnonce(newAnnonce));
     }
+
+
+
 
     @PutMapping("/{id}")
     public ResponseEntity<Annonce> updateAnnonce(@PathVariable Long id, @RequestBody Annonce updatedAnnonce) {

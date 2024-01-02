@@ -41,4 +41,10 @@ public class AuthenticationController {
         return ResponseEntity.ok(authenticationService.getCurrentUserId());
     }
 
+    @PostMapping("/logout")
+    public ResponseEntity<Void> logout() {
+        authenticationService.logout();
+        return ResponseEntity.ok().build();
+    }
+
 }

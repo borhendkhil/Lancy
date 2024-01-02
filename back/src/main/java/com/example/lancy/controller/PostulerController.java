@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("/postuler")
+@RequestMapping("auth/postuler")
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 public class PostulerController {
@@ -19,9 +19,11 @@ public class PostulerController {
     }
 
     @GetMapping
-    public List<Postuler> getAllPostuler() {
-        return postulerService.findAll();
+    public ResponseEntity<List<Postuler>> getAllPostulers() {
+        return ResponseEntity.ok(postulerService.findAll());
     }
+
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Postuler> getPostulerById(@PathVariable Long id) {
@@ -31,8 +33,8 @@ public class PostulerController {
     }
 
     @PostMapping()
-    public Postuler createPostuler(@RequestBody Postuler annonce) {
-        return postulerService.createPostuler(annonce);
+   public ResponseEntity<Postuler> createPostuler(@RequestBody Postuler newPostuler) {
+        return ResponseEntity.ok(postulerService.createPostuler(newPostuler));
     }
 
     @PutMapping("/{id}")
@@ -48,4 +50,18 @@ public class PostulerController {
                 ResponseEntity.noContent().build() :
                 ResponseEntity.notFound().build();
     }
+    @GetMapping("/count/{id}")
+    public ResponseEntity<Integer> countPostuler(@PathVariable Long id) {
+        return ResponseEntity.ok(postulerService.countFreelancer(id));
+    }
+
+    @GetMapping("/annonce/{id}")
+    public ResponseEntity<List<Postuler>> getPostulerById_annonce(@PathVariable Long id) {
+        return ResponseEntity.ok(postulerService.getPostulerById_annonce(id));
+    }
+    @GetMapping("/freelancer/{id}")
+    public ResponseEntity<List<Postuler>> getPostulerById_freelancer(@PathVariable Long id) {
+        return ResponseEntity.ok(postulerService.getPostulerById_freelancer(id));
+    }
+
 }
