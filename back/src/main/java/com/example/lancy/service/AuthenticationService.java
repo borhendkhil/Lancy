@@ -12,6 +12,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class AuthenticationService {
@@ -83,19 +85,55 @@ public class AuthenticationService {
         var jwtToken = jwtService.generateToken(user);
 
 
+
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .build();
     }
 
-public Long getCurrentUserId() {
+    public Long getCurrentUserId() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
         if (authentication != null && authentication.getPrincipal() instanceof UserDetails) {
-                UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-                return userRepository.findByMail(userDetails.getUsername())
-                                .map(User::getId)
-                                .orElse(null);
+            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+            String username = userDetails.getUsername();
+            System.out.println("Username: " + username);
+
+            Optional<User> userOptional = userRepository.findByMail(username);
+            if (userOptional.isPresent()) {
+                Long userId = userOptional.get().getId();
+                System.out.println("User ID: " + userId);
+                return userId;
+            } else {
+                System.out.println("User not found in the database.");
+            }
+        } else {
+            System.out.println("User not authenticated.");
         }
+
         return null;
-}
+    }
+    public AuthenticationResponse authenticateAndGetCurrentUser(AuthenticationRequest request) {
+        // Create an authentication token with the provided username and password
+        Authentication authenticationToken = new UsernamePasswordAuthenticationToken(
+                request.getMail(),
+                request.getPassword()
+        );
+
+        // Authenticate the user
+        Authentication authenticatedAuthentication = authenticationManager.authenticate(authenticationToken);
+
+        // Set the authenticated user in the SecurityContextHolder
+        SecurityContextHolder.getContext().setAuthentication(authenticatedAuthentication);
+
+        // Retrieve the authenticated user's ID
+        String authenticatedUsername = authenticatedAuthentication.getName();
+        Optional<User> userOptional = userRepository.findByMail(authenticatedUsername);
+
+        // Generate JWT token
+        String jwtToken = jwtService.generateToken(userOptional.orElseThrow());
+
+        // Return a DTO with user ID and token
+        return new AuthenticationResponse(userOptional.map(User::getId).orElse(null), jwtToken);
+    }
 }
