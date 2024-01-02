@@ -25,5 +25,11 @@ public class Annonce {
 
     private String description;
 
+    private String category;
+
+
+
+
+
 }
 
