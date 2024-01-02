@@ -325,7 +325,7 @@ form.sign-in-form {
     transform: translate(-50%, 0);
   }
 }
-/*responsve */
+
 @media (max-width: 570px) {
   form {
     padding: 0 1.5rem;
