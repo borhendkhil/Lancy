@@ -353,5 +353,37 @@ form.sign-in-form {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
+
+.switcher {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: #f2f2f2;
+  overflow: hidden;
+}
+
+.switcher input[type="radio"] {
+  display: none;
+}
+
+.switcher label {
+  position: relative;
+  z-index: 1;
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.switcher input[type="radio"]:checked + label {
+  color: white;
+  background-color: #172671;
+  transition: 0.3s;
+  border-radius: 25px;
+}
+

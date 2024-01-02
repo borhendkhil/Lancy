@@ -7,6 +7,7 @@ const SignInUpForm = () => {
     const [password, setPassword] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
+    const [userType, setUserType] = useState('freelancer');
     const [isSignUpMode, setIsSignUpMode] = useState(false);
  
 
@@ -100,7 +101,7 @@ const SignInUpForm = () => {
                     <form action="#" className="sign-in-form">
                         <h2 className="title">Se connecter</h2>
                         <div className="input-field">
-                            <i className="fas fa-envelope"></i>
+                            <label className="switch"></label>
                             <input type="email" placeholder="Email" onChange={e => setEmail(e.target.value)}/>
                         </div>
                         <div className="input-field">
@@ -126,11 +127,20 @@ const SignInUpForm = () => {
                         </div>
                         <div className="input-field">
                             <i className="fas fa-lock"></i>
-                            <input type="password" placeholder="Mot de passe"onChange={e => setPassword(e.target.value)} />
+                            <input type="password" placeholder="Mot de passe" onChange={e => setPassword(e.target.value)} />
                         </div>
+
+                        <div className="switcher">
+                            <input type="radio" id="option1" name="switch" checked={userType === 'client'} onChange={() => setUserType('client')} />
+                            <label for="option1">Client</label>
+
+                            <input type="radio" id="option2"  name="switch" checked={userType === 'freelancer'} onChange={() => setUserType('freelancer')} />
+                            <label for="option2">Freelancer</label>
+                        </div>  
+                                                    
                         <div className="btn" onClick={handleSignUp}>S'inscrire</div>
                     </form>
-                </div>
+                        </div>
             </div>
 
             <div className="panels-container">
