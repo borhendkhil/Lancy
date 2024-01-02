@@ -89,19 +89,9 @@ public class AuthenticationService {
     }
 
     public Long getCurrentUserId() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        var authentication = SecurityContextHolder.getContext().getAuthentication();
+        var user = (UserDetails) authentication.getPrincipal();
+        return userRepository.findByMail(user.getUsername()).orElseThrow().getId();
 
-        if (authentication == null || !authentication.isAuthenticated()) {
-            return null;
-        }
-
-        Object principal = authentication.getPrincipal();
-
-        if (principal instanceof UserDetails) {
-
-            return ((User) principal).getId();
-        }
-
-        return null;
     }
 }
