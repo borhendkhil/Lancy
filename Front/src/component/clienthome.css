@@ -1,78 +1,65 @@
+
 .container2 {
-  width: 90%;
-  padding: 20px;
-  border-radius: 20px;
-  background-color: #f8f8f8;
-  margin-top: 80px;
-  margin-left: 3%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Add a subtle shadow to the container */
-}
-
-.title {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #172671; /* Make the title color consistent with the vertical line */
-}
-
-.style-title {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.vertical-line {
-  width: 5px;
-  border-radius: 25%;
-  height: 40px;
-  background-color: #172671;
-  margin-right: 10px;
-}
-
-.input-group {
-  margin-bottom: 20px;
-}
-
-.input-group label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.input-group input,
-.input-group textarea,
-.input-group select {
-  width: 100%;
-  padding: 10px;
-  box-sizing: border-box;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  transition: border-color 0.3s ease; /* Add a transition to the border color */
-}
-
-.input-group input:focus,
-.input-group textarea:focus,
-.input-group select:focus {
-  border-color: #172671; /* Change the border color when the input is focused */
-}
-
-.btn {
-  background-color: #ff7704;
-  color: white;
-  padding: 10px 10px;
-  width: 35%;
-  text-align: center;
-  text-decoration: none;
-  display: block;
-  margin: auto;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 15px;
-  border: 1px solid #f8f8f8;
-  transition: background-color 0.3s ease; /* Add a transition to the background color */
-}
-
-.btn:hover {
-  background-color: #e76603; /* Darken the button color when hovered */
-}
-
+    width: 90%;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #f8f8f8;
+    margin-top: 80px;
+    margin-left: 3%;
+  }
+  
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .style-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .vertical-line {
+    width: 5px;
+    border-radius: 25%;
+    height: 40px;
+    background-color: #172671;
+    margin-right: 10px;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .input-group input,
+  .input-group textarea,
+  .input-group select {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .btn {
+    background-color: #ff7704;
+    color: white;
+    padding: 10px 10px;
+    width: 35%;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    margin: auto;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 15px;
+    border: 1px solid #f8f8f8;
+    /* Ajout de la bordure noire */
+  }
   

@@ -7,7 +7,7 @@ const SignInUpForm = () => {
     const [lastName, setLastName] = useState('');
     const [userType, setUserType] = useState('freelancer');
     const [isSignUpMode, setIsSignUpMode] = useState(false);
-    const [authendpoint, setAuthendpoint] = useState('http://localhost:8080/auth/registerFreelancer');
+    const [authendpoint, setAuthendpoint] = useState('');
  
 
     const handleSignUpClick = () => {
@@ -83,8 +83,17 @@ const SignInUpForm = () => {
             console.log(data.token);
             localStorage.setItem('token', data.token);
             localStorage.setItem('UserID', data.id);
+            localStorage.setItem('Role', data.role);
             
-        
+            return Promise.all([
+                localStorage.getItem('token'),
+                localStorage.getItem('UserID'),
+                localStorage.getItem('Role')
+            ]);
+        })
+        .then(([token, userID, role]) => {
+            console.log(token, userID, role);
+           window.location.replace("/");
         })
         .catch(error => {
             

@@ -54,14 +54,14 @@ nav div ul li {
     text-decoration: none;
 }
 .dropdown {
-    margin-right: 50px;
+    margin-right: 70px;
     position: relative;
     display: inline-block;
 }
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: rgba(23, 38, 113); /* Same background color as nav bar with less opacity */
+    background-color: rgba(23, 38, 113); 
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     padding: 12px 16px;
@@ -81,15 +81,17 @@ nav div ul li {
     margin: 0;
   }
   
-  .dropdown-content li {
+  .dropdown-content a, .dropdown-content div {
     display: block;
     margin-bottom: 10px;
-    color: #fff;
-    margin-top: 10px;
+    color: #ffffff;
+    text-decoration: none;
+
+    
+  }
+  .dropdown-content a:hover, .dropdown-content div:hover {
+    background-color: #0b164e;
+    text-decoration: underline;
   }
   
-  a {
-    color: #fff;
-    text-decoration: none;
-    margin-top: 10px;
-  }
+ 

@@ -6,42 +6,44 @@ function ClientHome (){
     const [title, setTitle] = useState("");
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
-    const [budget, setBudget] = useState("");
+    
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
         const token = localStorage.getItem("token");
         const data = {
+            id_client: localStorage.getItem("UserID"),
             title: title,
             category: category,
             description: description,
-            budget: budget
+            etat: "annonce"
+           
         };
 
-        fetch("/publish", {
+        fetch("http://localhost:8080/auth/annonce", {
             method: "POST",
+            mode: "no-cors", 
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
             },
             body: JSON.stringify(data)
         })
         .then(response => response.json())
         .then(result => {
-            // Handle the response from the API
+           
             console.log(result);
         })
         .catch(error => {
             // Handle any errors
-            console.error(error);
+            
         });
     };
 
     return (
-        <div> <Navbar Role={"client"}/>
         <div className="container2">
-           
+            <Navbar Role={"client"}/>
             <div className="style-title">
                 <div className="vertical-line"></div>
                 <h2 className="title">Publier un projet</h2>
@@ -59,9 +61,9 @@ function ClientHome (){
                     </div>
                     <select id="category" name="category" required value={category} onChange={(event) => setCategory(event.target.value)}>
                         <option value="">Choisir une catégorie</option>
-                        <option value="1">Catégorie 1</option>
-                        <option value="2">Catégorie 2</option>
-                        <option value="3">Catégorie 3</option>
+                        <option value="1">Developpment web</option>
+                        <option value="2">Developpmentmobile</option>
+                        <option value="3">Design Graphique</option>
                     </select>
                 </div>
 
@@ -73,17 +75,10 @@ function ClientHome (){
                     <textarea id="description" name="description" rows="5" required value={description} onChange={(event) => setDescription(event.target.value)}></textarea>
                 </div>
 
-                <div className="input-group">
-                    <div className="style-title">
-                        <div className="vertical-line"></div>
-                        <h2 className="title">Quel est votre budget ? </h2>
-                    </div>
-                    <input type="text" id="budget" name="budget" required value={budget} onChange={(event) => setBudget(event.target.value)} />
-                </div>
+                
 
                 <button type="submit" className="btn">Publier un projet</button>
             </form>
-        </div>
         </div>
     );
 };

@@ -10,7 +10,7 @@ function App() {
   
   let Role = localStorage.getItem('Role');
 
-  if (Role === "freelancer") {
+  if (Role === "FREELANCER") {
     return (
       <div className="App">
         <Router>
@@ -21,7 +21,7 @@ function App() {
         </Router>
       </div>
     );
-  } else if (Role === "client") {
+  } else if (Role === "CLIENT") {
     return (
       <div className="App">
         <Router>

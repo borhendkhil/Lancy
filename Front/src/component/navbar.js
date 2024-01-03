@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Import the Link component from react-router-dom
+import { Link } from 'react-router-dom'; 
 import logo from '../res/logohor.png';
 import './navbar.css';
 
@@ -32,7 +32,7 @@ const Navbar = ({ Role }) => {
                                 </div>
                             </li>
                         </>
-                    ) : Role === 'Client' ? (
+                    ) : Role === 'client' ? (
                         <>
                             <li className="dropdown">
                                 Projets
@@ -45,9 +45,9 @@ const Navbar = ({ Role }) => {
                             <li className="dropdown">
                                 Profile
                                 <div className="dropdown-content">
-                                    <Link>Profile</Link>
-                                    <Link>Edit Profile</Link>
-                                    <Link>Se deconnecter</Link>
+                                <Link>Modifer profile</Link>
+                                    <Link>Message</Link>
+                                    <div>Se deconnecter</div>
 
                                 </div>
                             </li>
