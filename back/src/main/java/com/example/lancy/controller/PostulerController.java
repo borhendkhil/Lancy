@@ -59,6 +59,8 @@ public class PostulerController {
     public ResponseEntity<List<Postuler>> getPostulerById_annonce(@PathVariable Long id) {
         return ResponseEntity.ok(postulerService.getPostulerById_annonce(id));
     }
+
+
     @GetMapping("/freelancer/{id}")
     public ResponseEntity<List<Postuler>> getPostulerById_freelancer(@PathVariable Long id) {
         return ResponseEntity.ok(postulerService.getPostulerById_freelancer(id));

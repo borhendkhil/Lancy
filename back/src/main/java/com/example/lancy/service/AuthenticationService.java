@@ -5,10 +5,13 @@ import com.example.lancy.model.*;
 import com.example.lancy.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -74,24 +77,6 @@ public class AuthenticationService {
                 .token(jwtToken)
                 .build();
     }
-    public AuthenticationResponse authenticate(AuthenticationRequest request) {
-
-
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        request.getMail(),
-                        request.getPassword()
-                )
-        );
-
-
-        var user = userRepository.findByMail(request.getMail()).orElseThrow();
-
-        var jwtToken = jwtService.generateToken(user);
-        return AuthenticationResponse.builder()
-                .token(jwtToken)
-                .build();
-    }
 
     public Long     getCurrentUserId() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -116,34 +101,37 @@ public class AuthenticationService {
         return null;
     }
     public AuthenticationResponse authenticateAndGetCurrentUser(AuthenticationRequest request) {
-
-
         Authentication authenticationToken = new UsernamePasswordAuthenticationToken(
                 request.getMail(),
                 request.getPassword()
         );
 
-
-
         Authentication authenticatedAuthentication = authenticationManager.authenticate(authenticationToken);
-
 
         SecurityContextHolder.getContext().setAuthentication(authenticatedAuthentication);
 
         String authenticatedUsername = authenticatedAuthentication.getName();
         Optional<User> userOptional = userRepository.findByMail(authenticatedUsername);
 
-        String jwtToken = jwtService.generateToken(userOptional.orElseThrow());
+        User user = userOptional.orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
+        String jwtToken = jwtService.generateToken(user);
 
-        return new AuthenticationResponse(userOptional.map(User::getId).orElse(null), jwtToken);
-
-
+        return new AuthenticationResponse(user.getId(), jwtToken);
     }
+
 
     public void logout() {
         SecurityContextHolder.clearContext();
     }
+
+
+
+
+
+
+
+
 
 
 }
