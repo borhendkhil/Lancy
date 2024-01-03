@@ -3,8 +3,11 @@ import { Link,  } from 'react-router-dom';
 import logo from '../res/logohor.png';
 import './navbar.css';
 
+
 const Navbar = ({ Role }) => {
    
+
+
 
     const handleLogout = () => {
         const confirmLogout = window.confirm("Are you sure you want to logout?");
@@ -12,7 +15,7 @@ const Navbar = ({ Role }) => {
             localStorage.removeItem('Role');
             localStorage.removeItem('userId');
             localStorage.removeItem('token');
-            window.location.reload();
+            window.location.href = '/';
         }
     };
 
