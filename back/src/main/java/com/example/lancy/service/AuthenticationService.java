@@ -117,7 +117,7 @@ public class AuthenticationService {
 
         String jwtToken = jwtService.generateToken(user);
 
-        return new AuthenticationResponse(user.getId(), jwtToken);
+        return new AuthenticationResponse(user.getId(), jwtToken,user.getRole());
     }
 
 
