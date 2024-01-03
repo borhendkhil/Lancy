@@ -1,6 +1,4 @@
 import React, { useState} from 'react';
-
-
 import "./auth.css";
 const SignInUpForm = () => {
     const [email, setEmail] = useState('');
@@ -82,17 +80,11 @@ const SignInUpForm = () => {
         })
         .then(response => response.json())
         .then(data => {
-            
             console.log(data.token);
-            
             localStorage.setItem('token', data.token);
-           
+            localStorage.setItem('UserID', data.id);
             
-            
-    
         
-           //window.location.href = "/";
-            
         })
         .catch(error => {
             
