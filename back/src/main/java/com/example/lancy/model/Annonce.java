@@ -31,7 +31,9 @@ public class Annonce {
     private String category;
 
     private LocalDate date;
+
     private boolean isActive;
+
     private String etat;
 
 
