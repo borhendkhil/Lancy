@@ -9,6 +9,7 @@ const SignInUpForm = () => {
     const [lastName, setLastName] = useState('');
     const [userType, setUserType] = useState('freelancer');
     const [isSignUpMode, setIsSignUpMode] = useState(false);
+    const [authendpoint, setAuthendpoint] = useState('http://localhost:8080/auth/registerFreelancer');
  
 
     const handleSignUpClick = () => {
@@ -29,10 +30,17 @@ const SignInUpForm = () => {
             name: lastName,
             firstName: firstName,
             mail: email,
-            password: password
+            password: password,
+            
         };
+        if (userType === 'client'){
+         setAuthendpoint('http://localhost:8080/auth/register');
+         }
+        else if (userType === 'freelancer'){
+        setAuthendpoint('http://localhost:8080/auth/registerFreelancer');
+        }
 
-        fetch('http://localhost:8080/auth/register', {
+        fetch(authendpoint, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -42,14 +50,12 @@ const SignInUpForm = () => {
         .then(response => response.json())
         .then(data => {
             
-            console.log(data);
             
-            localStorage.setItem('token', data.token);
-
-            localStorage.setItem('IsAuthenticated', 'true');
+            
+            setIsSignUpMode(false);
           
        
-          window.location.href = "/";
+          
             
         })
         .catch(error => {
@@ -81,11 +87,11 @@ const SignInUpForm = () => {
             
             localStorage.setItem('token', data.token);
            
-            //localStorage.setItem('IsAuthenticated', 'true');
+            
             
     
         
-           // window.location.href = "/";
+           //window.location.href = "/";
             
         })
         .catch(error => {

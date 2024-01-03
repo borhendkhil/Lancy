@@ -8,7 +8,7 @@ import Freehome from './component/freehome';
 
 function App() {
   
-  let Role = "client";
+  let Role = localStorage.getItem('Role');
 
   if (Role === "freelancer") {
     return (
