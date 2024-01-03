@@ -4,7 +4,7 @@ import logo from '../res/logohor.png';
 import './navbar.css';
 
 const Navbar = ({ Role }) => {
-    const isAuthenticated = localStorage.getItem('token');
+    
     return (
         <nav>
             <div>
@@ -32,7 +32,7 @@ const Navbar = ({ Role }) => {
                                 </div>
                             </li>
                         </>
-                    ) : Role === 'CLient' ? (
+                    ) : Role === 'Client' ? (
                         <>
                             <li className="dropdown">
                                 Projets
@@ -45,8 +45,10 @@ const Navbar = ({ Role }) => {
                             <li className="dropdown">
                                 Profile
                                 <div className="dropdown-content">
-                                    <a href="#">View Profile</a>
-                                    <a href="#">Edit Profile</a>
+                                    <Link>Profile</Link>
+                                    <Link>Edit Profile</Link>
+                                    <Link>Se deconnecter</Link>
+
                                 </div>
                             </li>
                         </>
