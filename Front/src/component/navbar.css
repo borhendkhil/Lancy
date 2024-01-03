@@ -93,5 +93,8 @@ nav div ul li {
     background-color: #0b164e;
     text-decoration: underline;
   }
-  
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
  

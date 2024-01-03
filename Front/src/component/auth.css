@@ -126,6 +126,7 @@ form.sign-in-form {
   left: 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+
 }
 
 .container:before {
@@ -147,7 +148,7 @@ form.sign-in-form {
 .panel {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-around;
   text-align: center;
   z-index: 6;
@@ -189,6 +190,7 @@ form.sign-in-form {
   font-size: 0.8rem;
   color: #172671;
   margin: 25px;
+  margin-left: 13vw;
 }
 
 
@@ -366,6 +368,7 @@ form.sign-in-form {
   padding: 10px;
   background-color: #f2f2f2;
   overflow: hidden;
+  margin-bottom: 15px;
 }
 
 .switcher input[type="radio"] {

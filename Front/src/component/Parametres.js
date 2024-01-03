@@ -1,5 +1,6 @@
 import React from 'react';
 import './Parametres.css'; 
+import Navbar from './navbar';
 
 function Parametres() {
  
@@ -10,6 +11,7 @@ function Parametres() {
 
   return (
     <div>
+      
       <form onSubmit={handleSubmit}>
         <div className="style-title">
           <div className="vertical-line"></div>

@@ -1,10 +1,21 @@
 import React, { useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link,  } from 'react-router-dom'; 
 import logo from '../res/logohor.png';
 import './navbar.css';
 
 const Navbar = ({ Role }) => {
-    
+   
+
+    const handleLogout = () => {
+        const confirmLogout = window.confirm("Are you sure you want to logout?");
+        if (confirmLogout) {
+            localStorage.removeItem('Role');
+            localStorage.removeItem('userId');
+            localStorage.removeItem('token');
+            window.location.reload();
+        }
+    };
+
     return (
         <nav>
             <div>
@@ -16,39 +27,28 @@ const Navbar = ({ Role }) => {
                 <ul>
                     {Role === 'Freelance' ? (
                         <>
-                            <li className="dropdown">
-                                Projets
-                                <div className="dropdown-content">
-                                    <a href="#">Project 1</a>
-                                    <a href="#">Project 2</a>
-                                    <a href="#">Project 3</a>
-                                </div>
-                            </li>
+                            
                             <li className="dropdown">
                                 Profile
                                 <div className="dropdown-content">
-                                    <a href="#">View Profile</a>
-                                    <a href="#">Edit Profile</a>
+                                    
+                                    <a href="/parametres">Edit Profile</a>
+                                    <div onClick={handleLogout}>Se deconnecter</div>
                                 </div>
                             </li>
                         </>
                     ) : Role === 'client' ? (
                         <>
                             <li className="dropdown">
-                                Projets
-                                <div className="dropdown-content">
-                                    <a href="#">Project 1</a>
-                                    <a href="#">Project 2</a>
-                                    <a href="#">Project 3</a>
-                                </div>
+                                <a href="/projects">Projets</a>
                             </li>
                             <li className="dropdown">
                                 Profile
                                 <div className="dropdown-content">
-                                <Link>Modifer profile</Link>
-                                    <Link>Message</Link>
-                                    <div>Se deconnecter</div>
-
+                                <div className="dropdown-content">
+                                <a href="/parametres">Edit Profile</a>
+                                    <div onClick={handleLogout}>Se deconnecter</div>
+                                </div>
                                 </div>
                             </li>
                         </>

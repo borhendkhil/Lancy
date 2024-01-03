@@ -44,9 +44,9 @@ export function Home() {
               <Navbar/>
       
             <div className='mrb3-m3wj'>
-                <p className='title1'>eddes eddes barcha jaw n7eb nmout ya bro</p>
+                <p className='title1'>TagLine</p>
                 <p className='text' > barcha klem s8ir barcha klem s8irbarcha klem s8irbarcha klem s8irbarcha klem s8irbarcha klem s8irbarcha klem s8irbarcha klem s8irbarcha klem s8irbarcha klem s8ir</p>
-                <p className='button'> Aide et Support</p>
+                <p className='button1' > Aide et Support</p>
             </div>
             <div className='lech'>
             <p className='title2'>Pourquoi nous choisir ?</p> 
@@ -59,7 +59,7 @@ export function Home() {
                     <p className='title2'>Dénichez un talentueux freelance Tunisien sur notre plateforme</p>
                     <p className='text2'> barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem </p>
                     <p className='text2'> chwayya klem chwayya klem chwayya klem chwayya </p>
-                    <p className='button'> Publier un projet</p>
+                    <p className='button1'> Publier un projet</p>
                 </div>
             </div>
             <div className='categories'>
@@ -85,7 +85,7 @@ export function Home() {
                     <p className='title2'>Dénichez un talentueux freelance Tunisien sur notre plateforme</p>
                     <p className='text2'> barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem barcha klem </p>
                     <p className='text2'> chwayya klem chwayya klem chwayya klem chwayya </p>
-                    <p className='button'> Publier un projet</p>
+                    <p className='button1'> Publier un projet</p>
                 </div>
                 
                 <img className='img' src={desktop} />

@@ -17,16 +17,18 @@ function ClientHome (){
             title: title,
             category: category,
             description: description,
-            etat: "annonce"
+            etat: "annonce",
+            date: new Date()
            
         };
+        console.log(data);
 
         fetch("http://localhost:8080/auth/annonce", {
             method: "POST",
-            mode: "no-cors", 
+           
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${localStorage.getItem("token")}`
+                "Authorization": `Bearer ${token}`
             },
             body: JSON.stringify(data)
         })
@@ -34,16 +36,18 @@ function ClientHome (){
         .then(result => {
            
             console.log(result);
+            alert("Votre projet a été publié avec succès");
         })
         .catch(error => {
-            // Handle any errors
+         
             
         });
     };
 
     return (
+        <div><Navbar Role={"client"}/>
         <div className="container2">
-            <Navbar Role={"client"}/>
+            
             <div className="style-title">
                 <div className="vertical-line"></div>
                 <h2 className="title">Publier un projet</h2>
@@ -61,9 +65,9 @@ function ClientHome (){
                     </div>
                     <select id="category" name="category" required value={category} onChange={(event) => setCategory(event.target.value)}>
                         <option value="">Choisir une catégorie</option>
-                        <option value="1">Developpment web</option>
-                        <option value="2">Developpmentmobile</option>
-                        <option value="3">Design Graphique</option>
+                        <option value="Developpment web">Developpment web</option>
+                        <option value="Developpment mobile">Developpment mobile</option>
+                        <option value="Design Graphique">Design Graphique</option>
                     </select>
                 </div>
 
@@ -79,6 +83,7 @@ function ClientHome (){
 
                 <button type="submit" className="btn">Publier un projet</button>
             </form>
+        </div>
         </div>
     );
 };

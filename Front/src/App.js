@@ -5,6 +5,9 @@ import Navbar from './component/navbar';
 import SignInUpForm from './component/auth';
 import ClientHome from './component/clienthome';
 import Freehome from './component/freehome';
+import Candidates from './component/candidates';
+import Projects from './component/projects';
+import Parametres from './component/Parametres';
 
 function App() {
   
@@ -17,6 +20,7 @@ function App() {
           <Routes>
             <Route path="/" Component={Freehome} />
             <Route path="/auth" Component={SignInUpForm} />
+            <Route path='/parametres' Component={Parametres} />
           </Routes>
         </Router>
       </div>
@@ -28,6 +32,8 @@ function App() {
           <Routes>
             <Route path="/" Component={ClientHome} />
             <Route path="/auth" Component={SignInUpForm} />
+            <Route path="/projects" Component={Projects} />
+            <Route path='/parametres' Component={Parametres} />
           </Routes>
         </Router>
       </div>
@@ -39,6 +45,7 @@ function App() {
           <Routes>
             <Route path="/" Component={Home} />
             <Route path="/auth" Component={SignInUpForm} />
+            
           </Routes>
         </Router>
       </div>
